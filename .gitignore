@@ -1,0 +1,39 @@
+# =============== #
+# Unity #
+# =============== #
+Temp/
+Library/
+Builds/
+obj/Debug/
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+.vs/
+ 
+# ============ #
+# OS #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============ #
+# NIXBuildAutomationScripts #
+# ============ #
+_last_revision.sh
+_unity_last_build_vars.plist
