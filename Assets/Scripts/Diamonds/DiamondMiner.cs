@@ -66,18 +66,13 @@ public class DiamondMiner : MonoBehaviour
     private void CheckOfflineDiamonds()
     {
         if (!PlayerPrefs.HasKey(AppQuitTimeKey)) return;
-        DateTime quitTime = this.GetDateFromString(AppQuitTimeKey);
+        DateTime quitTime = DateTime.Parse(PlayerPrefs.GetString(AppQuitTimeKey));
         TimeSpan span = DateTime.UtcNow - quitTime;
         float diamondsWhileAppClosed = (span.Milliseconds / 1000f) * DiamondsPerSec; //we are using milliseconds here for more precision
         float diamondsCount = PlayerPrefs.GetFloat(DiamondsCountKey);
         diamondsCount += diamondsWhileAppClosed;
         PlayerPrefs.SetFloat(DiamondsCountKey, diamondsCount);
         this.PrintInConsole("Mined offline: " + diamondsWhileAppClosed);
-    }
-
-    private DateTime GetDateFromString(string dateString)
-    {
-        return DateTime.Parse(PlayerPrefs.GetString(dateString));
     }
 
     private void PrintInConsole(string message)
