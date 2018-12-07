@@ -68,7 +68,7 @@ public class DiamondMiner : MonoBehaviour
         if (!PlayerPrefs.HasKey(AppQuitTimeKey)) return;
         DateTime quitTime = DateTime.Parse(PlayerPrefs.GetString(AppQuitTimeKey));
         TimeSpan span = DateTime.UtcNow - quitTime;
-        float diamondsWhileAppClosed = (span.Milliseconds / 1000f) * DiamondsPerSec; //we are using milliseconds here for more precision
+        float diamondsWhileAppClosed = ((float)span.TotalMilliseconds / 1000f) * DiamondsPerSec; //we are using milliseconds here for more precision
         float diamondsCount = PlayerPrefs.GetFloat(DiamondsCountKey);
         diamondsCount += diamondsWhileAppClosed;
         PlayerPrefs.SetFloat(DiamondsCountKey, diamondsCount);
